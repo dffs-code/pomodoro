@@ -4,7 +4,15 @@ var limit = document.querySelector('#limit')
 
 function start() {
     if(limit.value !== ''){
-        minute.innerHTML = limit.value
+        if(limit.value < 1){
+            var menorQueZero = limit.value * 60;
+            second.innerHTML = menorQueZero;
+            minute.innerHTML = '00'
+        }else if(limit.value < 10){
+            minute.innerHTML = `0${limit.value}`;
+        }else{
+            minute.innerHTML = limit.value;
+        }
     }
 
     intervalID = setInterval(() => {
@@ -15,7 +23,7 @@ function start() {
             seg = 60;
             min--;
             if(min < 10){
-                minute.innerHTML = `0${min}`
+                minute.innerHTML = `0${min}`;
             }else{
                 minute.innerHTML = min;
             }
@@ -26,15 +34,20 @@ function start() {
         } else {
             second.innerHTML = seg;
         }
+
+        if(min === 0 && seg === 0){
+            reset()
+            alert("terminou")
+        }
     }, 1000)
 
-    btn.setAttribute('disabled', 'disabled')
+    btn.setAttribute('disabled', 'disabled');
 }
 
 function reset(){
-    second.innerHTML = '00'
-    minute.innerHTML = '25'
+    second.innerHTML = '00';
+    minute.innerHTML = '25';
 
-    clearInterval(intervalID)
-    btn.removeAttribute('disabled', 'disabled')
+    clearInterval(intervalID);
+    btn.removeAttribute('disabled', 'disabled');
 }
