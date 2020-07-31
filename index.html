@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Pomodoro</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+</head>
+<body>
+    <div class="watch">
+        <h1 class="minute" id="minute">25</h1>
+        <h1 class="dot">:</h1>
+        <h1 class="second" id="second">00</h1>
+    </div>
+    <input type="number" max="25" id="limit">
+    <button onclick=start() id="btnStart">Start</button>
+    <button onclick=reset() id="btnReset">Clear</button>
+    <script src='main.js'></script>
+</body>
+</html>
